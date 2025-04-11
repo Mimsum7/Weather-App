@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🌦️ Find out the weather</h1>
+    <form method="post">
+        <input type="text" name="city" placeholder="Enter a city" required>
+        <button type="submit">What's the weather?</button>
+    </form>
+
+    {% if weather == 'error' %}
+    <p style="color:red;">City not found! Try again.</p>
+    {% elif weather %}
+    <div>
+        <h2>🌍 {{ weather.city }}</h2>
+        <p>Temperature: {{ weather.temperature }} °C</p>
+        <p>Condition: {{ weather.description }}</p>
+        <p>Humidity: {{ weather.humidity }}%</p>
+    </div>
+    {% endif %}
+</body>
+</html>
